@@ -17,8 +17,10 @@ class LSystem:
 
     def pop_pos_angle(self):
         pos, heading =  self.stack.pop()
+        penup()
         setposition(pos)
         setheading(heading)
+        pendown()
 
     def print_pattern(self):
         draw_pattern = {
