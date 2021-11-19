@@ -13,7 +13,7 @@ def draw_peano():
     peano.print_pattern()
 
 def draw_hilbert():
-    hilber_omega = peano_omega
+    hilber_omega = "L"
     hilbert_expansion_rules = {
         "L":"+RF-LFL-FR+",
         "R":"-LF+RFR+FL-",
@@ -51,6 +51,7 @@ def draw_fractal_plant():
 
 def main():
     draw_fractal_plant()
+    # draw_koch()
 
 if __name__ == '__main__':
     main()
