@@ -49,8 +49,17 @@ def draw_fractal_plant():
     fractal_plant = LSystem(fractal_plant_omega, fractal_plant_expansion_rules, 25, 4)
     fractal_plant.print_pattern()    
 
+def draw_cantor():
+    cantor_omega = "A"
+    cantor_expansion_rules = {
+        "A":"ABA",
+        "B":"BBB",
+    }
+    cantor_set = LSystem(cantor_omega, cantor_expansion_rules, 0, 2)
+    cantor_set.print_pattern()
+
 def main():
-    draw_fractal_plant()
+    draw_cantor()
     # draw_koch()
 
 if __name__ == '__main__':

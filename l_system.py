@@ -1,5 +1,4 @@
 from turtle import *
-import math
 
 class LSystem:
     
@@ -21,6 +20,11 @@ class LSystem:
         setposition(pos)
         setheading(heading)
         pendown()
+    
+    def move_forward(self):
+        penup()
+        setx(xcor()+self.step_size)
+        pendown()
 
     def print_pattern(self):
         draw_pattern = {
@@ -29,6 +33,8 @@ class LSystem:
             "-":self.walk_R,
             "[":self.push_pos_angle,
             "]":self.pop_pos_angle,
+            "A":self.walk_F,
+            "B":self.move_forward
         }
         speed(10)
         pensize(self.line_thickness)
@@ -57,4 +63,3 @@ class LSystem:
         self.times = times
         self.stack = []
         self.end_pattern = self.expand(self.omega,times)
-        
