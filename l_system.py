@@ -34,7 +34,8 @@ class LSystem:
             "[":self.push_pos_angle,
             "]":self.pop_pos_angle,
             "A":self.walk_F,
-            "B":self.move_forward
+            "B":self.move_forward,
+            "G":self.walk_F,
         }
         speed(10)
         pensize(self.line_thickness)

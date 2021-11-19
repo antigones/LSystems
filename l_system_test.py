@@ -58,8 +58,20 @@ def draw_cantor():
     cantor_set = LSystem(cantor_omega, cantor_expansion_rules, 0, 2)
     cantor_set.print_pattern()
 
+def draw_sierpinsky():
+    sierpinsky_omega = "F-G-G"
+    sierpinsky_expansion_rules = {
+        "F":"F-G+F+G-F",
+        "G":"GG",
+        "+":"+",
+        "-":"-"
+    }
+    sierpinsky = LSystem(sierpinsky_omega, sierpinsky_expansion_rules, 120, 3)
+    sierpinsky.print_pattern()
+
+
 def main():
-    draw_cantor()
+    draw_sierpinsky()
     # draw_koch()
 
 if __name__ == '__main__':
