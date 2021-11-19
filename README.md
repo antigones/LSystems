@@ -1,7 +1,6 @@
-
 # L-System
 
-A class to draw curves produced as L-Systems.
+A class to draw curves expressed as L-System production rules
 
     koch_omega = "F"
     koch_expansion_rules = { 
