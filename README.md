@@ -37,3 +37,8 @@ A class to draw curves expressed as L-System production rules
 <p align="center" width="100%">
     <img src="https://github.com/antigones/LSystems/blob/main/imgs/plant.jpg?raw=true" alt="generated plant">
 </p>
+
+**References**
+
+- https://www.wikiwand.com/en/L-system
+- https://en.wikipedia.org/wiki/L-system
