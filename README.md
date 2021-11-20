@@ -39,13 +39,13 @@ A class to draw curves expressed as L-System production rules
 </p>
 
     dragon_curve_omega = "F"
-    fractal_plant_expansion_rules = {
+    dragon_curve_expansion_rules = {
       "F":"F+G",
       "G":"F-G",
       "+":"+",
       "-":"-"
     }
-    dragon_curve = LSystem(dragon_curve_omega, fractal_plant_expansion_rules, 90, 10)
+    dragon_curve = LSystem(dragon_curve_omega, dragon_curve_expansion_rules, 90, 10)
     dragon_curve.print_pattern()
 
 <p align="center" width="100%">
