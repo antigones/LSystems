@@ -13,7 +13,7 @@ A class to draw curves expressed as L-System production rules
 
  - omega: the axiom 
  - expansion_rules: the set of expansion rules 
- - angle: the angle to turn 
+ - angle: the angle to turn when turning left or right
  - time:  the number of iteration
 
 <p align="center" width="100%">
