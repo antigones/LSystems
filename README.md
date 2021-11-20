@@ -38,6 +38,20 @@ A class to draw curves expressed as L-System production rules
     <img src="https://github.com/antigones/LSystems/blob/main/imgs/plant.jpg?raw=true" alt="generated plant">
 </p>
 
+    dragon_curve_omega = "F"
+    fractal_plant_expansion_rules = {
+      "F":"F+G",
+      "G":"F-G",
+      "+":"+",
+      "-":"-"
+    }
+    dragon_curve = LSystem(dragon_curve_omega, fractal_plant_expansion_rules, 90, 10)
+    dragon_curve.print_pattern()
+
+<p align="center" width="100%">
+    <img src="https://github.com/antigones/LSystems/blob/main/imgs/dragon_curve.jpg?raw=true" alt="generated dragon curve">
+</p>
+
 **References**
 
 - https://www.wikiwand.com/en/L-system

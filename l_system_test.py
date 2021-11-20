@@ -95,8 +95,8 @@ def draw_dragon_curve():
         "+": "+",
         "-": "-",
     }
-    fractal_tree = LSystem(dragon_curve_omega, dragon_curve_expansion_rules, 90, 10)
-    fractal_tree.print_pattern()
+    dragon_curve = LSystem(dragon_curve_omega, dragon_curve_expansion_rules, 90, 10)
+    dragon_curve.print_pattern()
 
 def main():
     # draw_fractal_tree()
