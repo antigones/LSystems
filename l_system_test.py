@@ -87,11 +87,22 @@ def draw_fractal_tree():
     fractal_tree = LSystem(fractal_tree_omega, fractal_tree_expansion_rules, 45, 3)
     fractal_tree.print_pattern()
 
+def draw_dragon_curve():
+    dragon_curve_omega = "F"
+    dragon_curve_expansion_rules = {
+        "F": "F+G",
+        "G": "F-G",
+        "+": "+",
+        "-": "-",
+    }
+    fractal_tree = LSystem(dragon_curve_omega, dragon_curve_expansion_rules, 90, 10)
+    fractal_tree.print_pattern()
 
 def main():
     # draw_fractal_tree()
     # draw_sierpinsky()
-    draw_koch()
+    # draw_koch()
+    draw_dragon_curve()
 
 if __name__ == '__main__':
     main()
