@@ -69,10 +69,21 @@ def draw_sierpinsky():
     sierpinsky = LSystem(sierpinsky_omega, sierpinsky_expansion_rules, 120, 3)
     sierpinsky.print_pattern()
 
+def draw_fractal_tree():
+    fractal_tree_omega = "0"
+    fractal_tree_expansion_rules = {
+        "1":"11",
+        "0":"1{0}0",
+        "{":"{",
+        "}":"}",
+    }
+    fractal_tree = LSystem(fractal_tree_omega, fractal_tree_expansion_rules, 45, 3)
+    fractal_tree.print_pattern()
 
 def main():
-    draw_sierpinsky()
-    # draw_koch()
+    # draw_fractal_tree()
+    # draw_sierpinsky()
+    draw_koch()
 
 if __name__ == '__main__':
     main()

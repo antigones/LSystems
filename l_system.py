@@ -15,16 +15,30 @@ class LSystem:
         return self.stack.append((pos(),heading()))
 
     def pop_pos_angle(self):
-        pos, heading =  self.stack.pop()
+        pos, heading = self.stack.pop()
         penup()
         setposition(pos)
         setheading(heading)
         pendown()
+
+    def push_pos_set_angle(self):
+        self.stack.append((pos(),heading()))
+        setheading(45)
     
+    def pop_pos_set_angle(self):
+        pos, _ =  self.stack.pop()
+        penup()
+        setposition(pos)
+        setheading(-45)
+        pendown()
+
     def move_forward(self):
         penup()
         setx(xcor()+self.step_size)
         pendown()
+
+    def draw_tip(self):
+        return forward(self.step_size//2)
 
     def print_pattern(self):
         draw_pattern = {
@@ -36,6 +50,10 @@ class LSystem:
             "A":self.walk_F,
             "B":self.move_forward,
             "G":self.walk_F,
+            "0":self.draw_tip,
+            "1":self.walk_F,
+            "{":self.push_pos_set_angle,
+            "}":self.pop_pos_set_angle,
         }
         speed(10)
         pensize(self.line_thickness)
