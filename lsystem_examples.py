@@ -131,9 +131,14 @@ def draw_fractal_plant():
 
 
 def draw_cantor():
+
+    def move_forward(step_size):
+        turtle.penup()
+        turtle.setx(turtle.xcor()+step_size)
+        turtle.pendown()
+
     cantor_omega = "A"
-    angle = 0
-    times = 2
+    times = 3
     step_size = 10
     cantor_expansion_rules = {
         "A": "ABA",
@@ -141,7 +146,8 @@ def draw_cantor():
     }
     
     cantor_instructions = {
-        "A": lambda: turtle.forward(step_size)
+        "A": lambda: turtle.forward(step_size),
+        "B": lambda: move_forward(step_size)
     }
     
     draw_system(
@@ -246,10 +252,13 @@ def draw_dragon_curve():
     )
 
 def main():
+    # draw_peano()
+    # draw_hilbert()
+    draw_cantor()
     # draw_fractal_tree()
     # draw_sierpinsky()
     # draw_koch()
-    draw_dragon_curve()
+    # draw_dragon_curve()
 
 
 
