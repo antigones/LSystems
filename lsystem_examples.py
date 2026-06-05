@@ -142,7 +142,7 @@ def draw_cantor():
     step_size = 10
     cantor_expansion_rules = {
         "A": "ABA",
-        "B": "BBB",
+        "B": "BBB"
     }
     
     cantor_instructions = {
@@ -254,11 +254,11 @@ def draw_dragon_curve():
 def main():
     # draw_peano()
     # draw_hilbert()
-    draw_cantor()
+    # draw_cantor()
     # draw_fractal_tree()
     # draw_sierpinsky()
     # draw_koch()
-    # draw_dragon_curve()
+    draw_dragon_curve()
 
 
 
