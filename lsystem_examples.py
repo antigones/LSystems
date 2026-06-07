@@ -6,6 +6,7 @@ from renderer import render_pattern
 def draw_system(omega, expansion_rules, draw_instructions, times, line_thickness=2):
     system = LSystem(omega, expansion_rules)
     pattern = system.expand(times=times)
+    print(pattern)
     render_pattern(pattern, draw_instructions, line_thickness)
 
 
@@ -251,6 +252,101 @@ def draw_dragon_curve():
         times=times
     )
 
+def draw_leaf():
+    angle = 25  
+    times = 10
+    step_size = 30
+
+    leaf_omega = "[A][B]"
+
+    leaf_expansion_rules = {
+        "A": "[+A{.].C.}",
+        "B": "[-B{.].C.}",
+        "C": "GC"
+    }
+
+    turtle_stack = []
+
+    current_side = None
+    leaf_base = None
+
+    left_axes = []
+    right_axes = []
+    
+    def push_state():
+        turtle_stack.append((turtle.pos(), turtle.heading(), current_side))
+    
+    def pop_state():
+        nonlocal current_side
+        saved_pos, saved_heading, saved_side = turtle_stack.pop()
+        turtle.penup()
+        turtle.setposition(saved_pos)
+        turtle.setheading(saved_heading)
+        turtle.pendown()
+        current_side = saved_side
+
+    def move_forward():
+        turtle.forward(step_size)
+
+    def clear_polygon_points():
+        nonlocal current_side
+        current_side = 'L' if turtle.heading() > 90 else 'R'
+
+    def fill_polygon():
+        endpoint = turtle.pos()
+        axes = left_axes if current_side == 'L' else right_axes
+        if axes:
+            fill_triangle(leaf_base, axes[-1], endpoint)
+        axes.append(endpoint)
+
+    def fill_triangle(p1, p2, p3):
+        pos_rec = turtle.pos()
+        head_rec = turtle.heading()
+
+        turtle.penup()
+        turtle.goto(p1)
+        turtle.pendown()
+        turtle.begin_fill()
+        turtle.goto(p2)
+        turtle.goto(p3)
+        turtle.goto(p1)
+        turtle.end_fill()
+
+        turtle.penup()
+        turtle.goto(pos_rec)
+        turtle.setheading(head_rec)
+        turtle.pendown()
+
+    # Leaf drawing instructions
+    leaf_instructions = {
+        "G": move_forward,
+        "+": lambda: turtle.left(angle),
+        "-": lambda: turtle.right(angle),
+        "[": push_state,
+        "]": pop_state,
+        "{": clear_polygon_points,
+        "}": fill_polygon,
+    }
+
+    # Technical configuration to get a clean vector look like the book
+    turtle.setheading(90)
+    leaf_base = turtle.pos()
+    # Custom color scheme: dark green lines and light green fill for the leaf polygons
+    turtle.pencolor("#1e3f20")
+    turtle.fillcolor("#a3d9a5")
+    turtle.pensize(1)
+
+    import time
+    time.sleep(15)
+    # Execute the expansion and rendering
+    draw_system(
+        omega=leaf_omega,
+        expansion_rules=leaf_expansion_rules,
+        draw_instructions=leaf_instructions,
+        times=times
+    )
+
+
 def main():
     # draw_peano()
     # draw_hilbert()
@@ -258,7 +354,8 @@ def main():
     # draw_fractal_tree()
     # draw_sierpinsky()
     # draw_koch()
-    draw_dragon_curve()
+    # draw_dragon_curve()
+    draw_leaf()
 
 
 

@@ -1,9 +1,6 @@
 from turtle import (
     speed,
     pensize,
-    color,
-    begin_fill,
-    end_fill,
     done,
 )
 
@@ -16,13 +13,10 @@ def render_pattern(pattern, draw_instructions, line_thickness=2):
     """
     speed(10)
     pensize(line_thickness)
-    color("red", "white")
-    begin_fill()
     for chr in pattern:
         action = draw_instructions.get(chr)
         if action:
             action()
-    end_fill()
     done()
 
 
@@ -30,11 +24,10 @@ def render_parametric_pattern(pattern, draw_instructions, line_thickness=2):
     """Renderizza un pattern parametric usando una mappa symbol -> callable(value)."""
     speed(10)
     pensize(line_thickness)
-    color("red", "white")
-    begin_fill()
+    #begin_fill()
     for symbol, value in pattern:
         action = draw_instructions.get(symbol)
         if action:
             action(value)
-    end_fill()
+    #end_fill()
     done()
